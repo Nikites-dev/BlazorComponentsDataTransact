@@ -1,0 +1,17 @@
+﻿<h3>Component1</h3>
+<p>@Text</p>
+<input type="text" @bind="Text"/>
+
+<button @onclick="(() => OnTextChanged())">Click</button>
+
+@code {
+    private String Text { get; set; }
+    
+    private void OnTextChanged()
+    {
+        onDataChanged?.Invoke(Text);
+    }
+    
+    [Parameter]
+    public Action<String> onDataChanged { get; set; }
+}

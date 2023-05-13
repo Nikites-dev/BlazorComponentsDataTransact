@@ -1,0 +1,22 @@
+﻿@page "/"
+@using ComponentsDataTransact.Components
+
+@inject Component1 Component1 
+@inject Component1 Component2 
+
+<p>TEST</p>
+
+<Component1 onDataChanged="@OnDataChanged"></Component1>
+<Component2 initialValue="@Text" ></Component2>
+
+
+@code
+{
+    private String Text { get; set; }
+
+    private void OnDataChanged(String text)
+    {
+        Text = text;
+        StateHasChanged();
+    }
+}
